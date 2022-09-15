@@ -8,9 +8,18 @@ public class DragonController : MonoBehaviour
     private float speed = 3f;
     [SerializeField]
     private Transform target;
+    [SerializeField]
+    private Transform spawnPoint;
     void Start()
     {
-        Attack();
+        StartCoroutine(Spawn());
+    }
+
+    IEnumerator Spawn()
+    {
+        yield return new WaitForSeconds(5f);
+        gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+        gameObject.transform.position = spawnPoint.position;
     }
     void Update()
     {

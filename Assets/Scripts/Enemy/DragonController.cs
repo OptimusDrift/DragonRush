@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,15 +12,17 @@ public class DragonController : MonoBehaviour
     private Transform spawnPoint;
     void Start()
     {
-        StartCoroutine(Spawn());
+        StartCoroutine(Spawn(1f));
     }
 
-    IEnumerator Spawn()
+    IEnumerator Spawn(float time)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(time);
         gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+        gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         gameObject.transform.position = spawnPoint.position;
     }
+
     void Update()
     {
 
@@ -54,14 +56,16 @@ public class DragonController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+            other.gameObject.SetActive(false);
         }
         if (other.gameObject.CompareTag("DeathZone"))
         {
             gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
             StartCoroutine(Wait());
+        }
+        if (other.gameObject.CompareTag("Respawn"))
+        {
+            StartCoroutine(Spawn(1f));
         }
     }
 }

@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour
+public class DeathZone : MonoBehaviour
 {
-    [SerializeField] 
-    private GameObject deathZone;
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreCollision(deathZone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Rock")
+        {
+            other.gameObject.GetComponent<Collider2D>().enabled = false;
+        }
     }
 }

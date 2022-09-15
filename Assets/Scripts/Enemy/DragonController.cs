@@ -10,31 +10,35 @@ public class DragonController : MonoBehaviour
     private Transform target;
     void Start()
     {
-        
+        Attack();
     }
     void Update()
     {
-        if (a)
-        {
-            Attack();
-        }
-        if (b)
-        {
-            LoadAttack();
-        }
+
     }
 
-    bool a = true;
     public void Attack()
     {
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * speed;
-        a = false;
     }
-
-    bool b = false;
-    public void LoadAttack()
+    IEnumerator LoadAttack()
     {
+        yield return new WaitForSeconds(5f);
+        Attack();
+    }
+    private int wait = 0;
+    IEnumerator Wait()
+    {
+        wait++;
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(target.transform.position.x, 0) * speed/2;
+        yield return new WaitForSeconds(1);
+        if(wait > 5){
+            Attack();
+            wait = 0;
+        }else
+        {
+            StartCoroutine(Wait());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -48,8 +52,7 @@ public class DragonController : MonoBehaviour
         if (other.gameObject.CompareTag("DeathZone"))
         {
             gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
-            //a = true;
-            b = true;
+            StartCoroutine(Wait());
         }
     }
 }

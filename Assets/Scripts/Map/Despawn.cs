@@ -19,5 +19,6 @@ public class Despawn : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         other.gameObject.GetComponent<Spawn>().Respawn();
+        Debug.Log("Spawn received " + other.tag);
     }
 }

@@ -20,19 +20,15 @@ public class Despawn : MonoBehaviour
     {
         try
         {
-            other.gameObject.GetComponent<Spawn>().Respawn();
-        }
-        catch (System.Exception)
-        {
-            
-        }
-
-        try
-        {
             other.gameObject.GetComponent<SpawnBackground>().Respawn();
         }
         catch (System.Exception)
         {
         }
+            if (other.gameObject.CompareTag("Rock"))
+            {
+                Destroy(other.gameObject);
+            }
+
     }
 }

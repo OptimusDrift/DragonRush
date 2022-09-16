@@ -29,7 +29,8 @@ public class SpawnRocks : MonoBehaviour
     {
         isSpawn = true;
         yield return new WaitForSeconds(time);
-        if (instantiatedRocks.Count < limitSpawn)
+        Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity);
+        /*if (instantiatedRocks.Count < limitSpawn)
         {
             instantiatedRocks.Add(Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity));
         }else
@@ -37,13 +38,14 @@ public class SpawnRocks : MonoBehaviour
             instantiatedRocks.Sort();
             instantiatedRocks[0].SetActive(true);
             instantiatedRocks.RemoveAt(0);
-        }
+        }*/
         isSpawn = false;
     }
 
     public void NewElement(GameObject g)
     {
-        instantiatedRocks.Add(g);
+        //instantiatedRocks.Add(g);
+        
     }
 
 }

@@ -22,6 +22,7 @@ public class Spawn : MonoBehaviour
 
     public void Respawn()
     {
+        
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         transform.position = spawnPoint.position;
         gameObject.GetComponent<Collider2D>().enabled = true;

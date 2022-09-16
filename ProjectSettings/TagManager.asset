@@ -10,6 +10,7 @@ TagManager:
   - Rock
   - Background
   - Wall
+  - Dragon
   layers:
   - Default
   - TransparentFX

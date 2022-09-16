@@ -5,7 +5,7 @@ using UnityEngine;
 public class DragonController : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 3f;
+    private float speed = 5f;
     [SerializeField]
     private Transform target;
     [SerializeField]
@@ -40,10 +40,22 @@ public class DragonController : MonoBehaviour
     private int wait = 0;
     IEnumerator Wait()
     {
+        if ((target.transform.position.x - gameObject.transform.position.x) > 1.5f)
+        {
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed/2;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+
+        }
+        else if ((target.transform.position.x - gameObject.transform.position.x) < -1.5f)
+        {
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * speed/2;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
+        } else {
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        }
         wait++;
-        gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(target.transform.position.x, 0) * speed/2;
-        yield return new WaitForSeconds(1);
-        if(wait > 5){
+        yield return new WaitForSeconds(.3f);
+        if(wait > 13){
             Attack();
             wait = 0;
         }else
@@ -54,14 +66,17 @@ public class DragonController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Rock") || other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Rock"))
         {
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.CompareTag("DeathZone"))
         {
             gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
-            StartCoroutine(Wait());
+            if (wait <= 0)
+            {
+                StartCoroutine(Wait());
+            }
         }
         if (other.gameObject.CompareTag("Respawn"))
         {

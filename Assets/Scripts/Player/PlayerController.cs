@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace EasyMobileInput.PlayerController
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Joystick movementJoystick;
     [SerializeField]
     private float speed = 5f;
+    [SerializeField]
+    private SpriteRenderer shadow;
     private int eggCount;
     // Start is called before the first frame update
     void Start()
@@ -22,8 +25,31 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = movementJoystick.CurrentProcessedValue * speed;
+        FlipPlayer();
         if(rock && deathZone){
-            Destroy(gameObject);
+                PlayerDeath();
+            }
+    }
+    private void PlayerDeath(){
+        StartCoroutine(ResetLevel());
+        gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
+        shadow.enabled = false;
+    }   
+    IEnumerator ResetLevel(){
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+        private void FlipPlayer()
+    {
+        if (movementJoystick.CurrentProcessedValue.x > 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else if (movementJoystick.CurrentProcessedValue.x < 0)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
         }
     }
 
@@ -42,6 +68,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("DeathZone"))
         {
             deathZone = true;
+        }
+        if (other.gameObject.CompareTag("Dragon"))
+        {
+            PlayerDeath();
         }
     }
 

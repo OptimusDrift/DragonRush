@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4331573822646780512}
   - component: {fileID: 6571092471853375917}
   - component: {fileID: 226211863567163349}
+  - component: {fileID: 6446275804738350324}
   m_Layer: 0
   m_Name: Huevo
   m_TagString: Item
@@ -144,3 +145,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!111 &6446275804738350324
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331573822646780526}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 62a9ea52df6005343bcdbb3a52f8698a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 62a9ea52df6005343bcdbb3a52f8698a, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

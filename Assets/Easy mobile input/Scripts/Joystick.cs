@@ -23,7 +23,8 @@ namespace EasyMobileInput
 
         [SerializeField]
         private float maxKnobDistance = 150.0f;
-
+        [SerializeField]
+        private GameObject imageController;
         protected override Vector3 CurrentRawValue { get; set; }
 
         public BaseInputProcessor ValueFetchStage
@@ -88,8 +89,11 @@ namespace EasyMobileInput
             return Processors == null ? null : Processors.Find(x => x != null && x is BaseInputProcessor && (x as BaseInputProcessor).GUID == guid) as BaseInputProcessor;
         }
 
+        private bool press = false;
         public void OnPointerDown(PointerEventData eventData)
         {
+            imageController.SetActive(true);
+            press = true;
             if (pointerIdDraggingJoystick != -1)
                 return;
 
@@ -107,8 +111,18 @@ namespace EasyMobileInput
                 OnInputStarted();
         }
 
+        IEnumerator HiddeButton()
+        {
+            yield return new WaitForSeconds(.5f);
+            if (!press)
+            {
+                imageController.SetActive(false);
+            }
+        }
         public void OnPointerUp(PointerEventData eventData)
         {
+            press = false;
+            StartCoroutine(HiddeButton());
             if (eventData.pointerId != pointerIdDraggingJoystick)
                 return;
 

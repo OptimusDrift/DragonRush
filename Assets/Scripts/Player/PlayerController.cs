@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             other.gameObject.SetActive(false);
-            eggCount++;
+            AddEgg();
         }
         if (other.gameObject.CompareTag("Rock"))
         {
@@ -90,6 +90,10 @@ public class PlayerController : MonoBehaviour
         {
             deathZone = false;
         }
+    }
+    private void AddEgg(){
+        eggCount++;
+        
     }
 }
 }

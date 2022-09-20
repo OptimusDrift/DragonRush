@@ -14,9 +14,12 @@ public class DragonController : MonoBehaviour
     private float timeSpawn = 1f;
     [SerializeField]
     private float timeToAttack = 15f;
+    [SerializeField]
+    private Transform endLevel;
     void Start()
     {
         StartCoroutine(Spawn(1f));
+        Physics2D.IgnoreCollision(endLevel.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     IEnumerator Spawn(float time)
@@ -42,13 +45,13 @@ public class DragonController : MonoBehaviour
     {
         if ((target.transform.position.x - gameObject.transform.position.x) > 1.5f)
         {
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed/2;
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed/3;
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
         }
         else if ((target.transform.position.x - gameObject.transform.position.x) < -1.5f)
         {
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * speed/2;
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * speed/3;
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
         } else {
             gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);

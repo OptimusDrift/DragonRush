@@ -22,13 +22,18 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        gameObject.transform.GetComponent<Rigidbody2D>().velocity = movementJoystick.CurrentProcessedValue * speed;
+        if (movementJoystick.CurrentProcessedValue.y < 0){
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(movementJoystick.CurrentProcessedValue.x* speed, movementJoystick.CurrentProcessedValue.y * speed * 2) ;
+        }else
+        {
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = movementJoystick.CurrentProcessedValue * speed;
+        }
         FlipPlayer();
         if(rock && deathZone){
-                PlayerDeath();
-            }
+            PlayerDeath();
+        }
     }
     private void PlayerDeath(){
         StartCoroutine(ResetLevel());

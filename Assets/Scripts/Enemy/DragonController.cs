@@ -10,6 +10,10 @@ public class DragonController : MonoBehaviour
     private Transform target;
     [SerializeField]
     private Transform spawnPoint;
+    [SerializeField]
+    private float timeSpawn = 1f;
+    [SerializeField]
+    private float timeToAttack = 15f;
     void Start()
     {
         StartCoroutine(Spawn(1f));
@@ -32,11 +36,7 @@ public class DragonController : MonoBehaviour
     {
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * speed;
     }
-    IEnumerator LoadAttack()
-    {
-        yield return new WaitForSeconds(5f);
-        Attack();
-    }
+
     private int wait = 0;
     IEnumerator Wait()
     {
@@ -55,7 +55,7 @@ public class DragonController : MonoBehaviour
         }
         wait++;
         yield return new WaitForSeconds(.3f);
-        if(wait > 13){
+        if(wait > timeToAttack){
             Attack();
             wait = 0;
         }else
@@ -66,21 +66,24 @@ public class DragonController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("other: " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Rock"))
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
         if (other.gameObject.CompareTag("DeathZone"))
         {
-            gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0;
             if (wait <= 0)
             {
+                wait = 1;
+                gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
                 StartCoroutine(Wait());
             }
         }
         if (other.gameObject.CompareTag("Respawn"))
         {
-            StartCoroutine(Spawn(1f));
+            StartCoroutine(Spawn(timeSpawn));
         }
     }
 }

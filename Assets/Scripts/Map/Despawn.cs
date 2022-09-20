@@ -25,10 +25,10 @@ public class Despawn : MonoBehaviour
         catch (System.Exception)
         {
         }
-            if (other.gameObject.CompareTag("Rock"))
-            {
-                Destroy(other.gameObject);
-            }
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            Destroy(other.gameObject);
+        }
 
     }
 }

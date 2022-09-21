@@ -10,6 +10,10 @@ public class SpawnRocks : MonoBehaviour
     private Transform spawnPoint;
     [SerializeField]
     private int limitSpawn = 3;
+    [SerializeField]
+    private float minTime = 1.5f;
+    [SerializeField]
+    private float maxTime = 3f;
     private List<GameObject> instantiatedRocks;
     private bool isSpawn = false;
     void Start()
@@ -21,7 +25,7 @@ public class SpawnRocks : MonoBehaviour
     {
         if (!isSpawn)
         {
-            StartCoroutine(SpawnRock(Random.Range(2f, 4f)));
+            StartCoroutine(SpawnRock(Random.Range(minTime, maxTime)));
         }
     }
 
@@ -48,4 +52,9 @@ public class SpawnRocks : MonoBehaviour
         
     }
 
+    public void updateTime(float min, float max)
+    {
+        minTime = min;
+        maxTime = max;
+    }
 }

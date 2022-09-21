@@ -14,13 +14,11 @@ public class PlayerController : MonoBehaviour
     private float speed = 5f;
     [SerializeField]
     private SpriteRenderer shadow;
-    private int eggCount;
     [SerializeField]
     private GameObject egg;
     // Start is called before the first frame update
     void Start()
     {
-        eggCount = 0;
     }
 
     // Update is called once per frame
@@ -94,11 +92,11 @@ public class PlayerController : MonoBehaviour
         }
     }
     private void AddEgg(){
-        eggCount++;
+        egg.GetComponent<Egg>().AddEgg();
+        /*eggCount++;
         var c = Instantiate(egg, new Vector3(eggCount * 0.5f, 0, 0), Quaternion.identity);
         c.GetComponent<HingeJoint2D>().connectedBody = gameObject.transform.GetComponent<Rigidbody2D>();
-        c.transform.parent = gameObject.transform;
-        Debug.Log(eggCount);
+        c.transform.parent = gameObject.transform;*/
     }
 }
 }

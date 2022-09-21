@@ -4448,8 +4448,8 @@ MonoBehaviour:
   - {fileID: 1066589518457722862, guid: b9dbc592fcd26714e91bfa8328a0f51d, type: 3}
   spawnPoint: {fileID: 1790593597}
   limitSpawn: 3
-  minTime: 1.5
-  maxTime: 3
+  minTime: 0.5
+  maxTime: 2
 --- !u!1 &1792125776
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1807686853219433331}
   - component: {fileID: 8348447099562584034}
   - component: {fileID: 2510598220618946777}
+  - component: {fileID: 6085495654302694009}
   m_Layer: 8
   m_Name: Roca
   m_TagString: Rock
@@ -146,12 +147,26 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: f2929e4bcc3497e4e9487782f6462c7f, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 3.3, y: 2.1}
   m_Direction: 1
+--- !u!114 &6085495654302694009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304052167190120880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f3e71f154d9a94b9d5a357c2624fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 380877505993164451}
+  col: {fileID: 1807686853219433331}
 --- !u!1 &1847408383867808013
 GameObject:
   m_ObjectHideFlags: 0

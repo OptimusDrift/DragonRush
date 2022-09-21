@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4663205959338127840}
   - component: {fileID: 4663205959338128927}
   - component: {fileID: 4663205959338128926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   movementJoystick: {fileID: 0}
   speed: 5
   shadow: {fileID: 0}
+  egg: {fileID: 0}
 --- !u!61 &4663205959338127841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.73}
+  m_Size: {x: 1.4, y: 1.8}
   m_EdgeRadius: 0
 --- !u!95 &4663205959338128926
 Animator:

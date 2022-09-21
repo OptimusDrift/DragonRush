@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SpriteRenderer shadow;
     private int eggCount;
+    [SerializeField]
+    private GameObject egg;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item"))
         {
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             AddEgg();
         }
         if (other.gameObject.CompareTag("Rock"))
@@ -93,7 +95,10 @@ public class PlayerController : MonoBehaviour
     }
     private void AddEgg(){
         eggCount++;
-        
+        var c = Instantiate(egg, new Vector3(eggCount * 0.5f, 0, 0), Quaternion.identity);
+        c.GetComponent<HingeJoint2D>().connectedBody = gameObject.transform.GetComponent<Rigidbody2D>();
+        c.transform.parent = gameObject.transform;
+        Debug.Log(eggCount);
     }
 }
 }

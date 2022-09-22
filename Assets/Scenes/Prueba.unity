@@ -5979,6 +5979,8 @@ MonoBehaviour:
   - {fileID: 1066589518457722862, guid: b9dbc592fcd26714e91bfa8328a0f51d, type: 3}
   spawnPoint: {fileID: 825096858}
   limitSpawn: 3
+  minTime: 1.5
+  maxTime: 3
 --- !u!4 &825096858
 Transform:
   m_ObjectHideFlags: 0
@@ -6600,6 +6602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 805172504558553220, guid: f59d0f36ef005d0479b4368d7d6c8b54,
         type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 805172504558553220, guid: f59d0f36ef005d0479b4368d7d6c8b54,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06
       objectReference: {fileID: 0}
@@ -6635,13 +6642,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4331573822646780514, guid: f59d0f36ef005d0479b4368d7d6c8b54,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331573822646780514, guid: f59d0f36ef005d0479b4368d7d6c8b54,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331573822646780514, guid: f59d0f36ef005d0479b4368d7d6c8b54,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4331573822646780514, guid: f59d0f36ef005d0479b4368d7d6c8b54,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.005865097
+      value: 0.004
       objectReference: {fileID: 0}
     - target: {fileID: 4331573822646780514, guid: f59d0f36ef005d0479b4368d7d6c8b54,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.43185
+      value: 32.436
       objectReference: {fileID: 0}
     - target: {fileID: 4331573822646780514, guid: f59d0f36ef005d0479b4368d7d6c8b54,
         type: 3}
@@ -6687,6 +6709,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Huevo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571092471853375917, guid: f59d0f36ef005d0479b4368d7d6c8b54,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f59d0f36ef005d0479b4368d7d6c8b54, type: 3}
@@ -14022,6 +14049,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 139333392}
   timeSpawn: 1
   timeToAttack: 15
+  endLevel: {fileID: 0}
 --- !u!50 &2132867382
 Rigidbody2D:
   serializedVersion: 4

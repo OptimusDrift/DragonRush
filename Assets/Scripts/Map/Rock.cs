@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    [SerializeField] 
-    private GameObject deathZone;
-    // Start is called before the first frame update
+    [SerializeField]
+    private ParticleSystem particles;
+    [SerializeField]
+    private Collider2D col;
+    private bool destroyed = false;
     void Start()
     {
-        Physics2D.IgnoreCollision(deathZone.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void Destroyed(){
+        if(destroyed) return;
+        col.enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        particles.Play();
+        destroyed = true;
     }
 }

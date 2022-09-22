@@ -72,8 +72,7 @@ public class DragonController : MonoBehaviour
         Debug.Log("other: " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Rock"))
         {
-            //other.gameObject.SetActive(false);
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Rock>().Destroyed();
         }
         if (other.gameObject.CompareTag("DeathZone"))
         {

@@ -20,7 +20,6 @@ public class SpawnBackground : MonoBehaviour
 
     public void Respawn()
     {
-        gameObject.transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         transform.position = spawnPoint.position;
     }
 }

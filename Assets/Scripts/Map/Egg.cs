@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Egg : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] egg;
+    [SerializeField]
+    private Text text;
     public int eggCount = 0;
-
     public void AddEgg(){
         try
         {
@@ -17,5 +19,7 @@ public class Egg : MonoBehaviour
         {
         }
         eggCount++;
+        text.text = eggCount.ToString();
+        
     }
 }

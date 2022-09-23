@@ -13,10 +13,14 @@ public class DragonController : MonoBehaviour
     [SerializeField]
     private float timeSpawn = 1f;
     [SerializeField]
-    private float timeToAttack = 15f;
+    private float loadAtack = 15f;
+    [SerializeField]
+    private float timeAttack = .6f;
     [SerializeField]
     private Transform endLevel;
-    [SerializeField] private Animator dragon;
+    [SerializeField]
+    private Animator dragon;
+    private bool isAttack = false;
     void Start()
     {
         StartCoroutine(Spawn(1f));
@@ -26,23 +30,43 @@ public class DragonController : MonoBehaviour
     IEnumerator Spawn(float time)
     {
         yield return new WaitForSeconds(time);
+        ChangeState(0);
         gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         gameObject.transform.position = spawnPoint.position;
-        dragon.SetBool("isAtackOne", false);
-        dragon.SetBool("isIdle", true);
+        isAttack = false;
+        ChangeSpeedAnimation(1f);
     }
 
     void Update()
     {
-
+        if (isAttack)
+        {
+            dragon.speed += Time.deltaTime;
+        }
     }
 
-    public void Attack()
+    private void ChangeSpeedAnimation(float speed)
     {
+        dragon.speed = speed;
+    }
+
+    public void ChangeState(int state){
+        dragon.SetInteger("dragonState", state);
+    }
+    public void LoadAttack()
+    {
+        ChangeSpeedAnimation(.5f);
+        isAttack = true;
+        ChangeState(1);
+        gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        StartCoroutine(Attack());
+    }
+
+    IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(timeAttack);
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * speed;
-        dragon.SetBool("isIdle", false);
-        dragon.SetBool("isAtackOne", true);
     }
 
     private int wait = 0;
@@ -51,20 +75,20 @@ public class DragonController : MonoBehaviour
         if ((target.transform.position.x - gameObject.transform.position.x) > 1.5f)
         {
             gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed/3;
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            transform.GetComponent<SpriteRenderer>().flipX = false;
 
         }
         else if ((target.transform.position.x - gameObject.transform.position.x) < -1.5f)
         {
             gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * speed/3;
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x)*-1, transform.localScale.y, transform.localScale.z);
+            transform.GetComponent<SpriteRenderer>().flipX = true;
         } else {
             gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
         wait++;
         yield return new WaitForSeconds(.3f);
-        if(wait > timeToAttack){
-            Attack();
+        if(wait > loadAtack){
+            LoadAttack();
             wait = 0;
         }else
         {
@@ -74,7 +98,6 @@ public class DragonController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("other: " + other.gameObject.tag);
         if (other.gameObject.CompareTag("Rock"))
         {
             other.gameObject.GetComponent<Rock>().Destroyed();

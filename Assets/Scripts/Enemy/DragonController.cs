@@ -16,6 +16,7 @@ public class DragonController : MonoBehaviour
     private float timeToAttack = 15f;
     [SerializeField]
     private Transform endLevel;
+    [SerializeField] private Animator dragon;
     void Start()
     {
         StartCoroutine(Spawn(1f));
@@ -28,6 +29,8 @@ public class DragonController : MonoBehaviour
         gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         gameObject.transform.position = spawnPoint.position;
+        dragon.SetBool("isAtackOne", false);
+        dragon.SetBool("isIdle", true);
     }
 
     void Update()
@@ -38,6 +41,8 @@ public class DragonController : MonoBehaviour
     public void Attack()
     {
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * speed;
+        dragon.SetBool("isIdle", false);
+        dragon.SetBool("isAtackOne", true);
     }
 
     private int wait = 0;

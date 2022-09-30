@@ -27,4 +27,8 @@ public class Rock : MonoBehaviour
         particles.Play();
         destroyed = true;
     }
+
+    public bool IsDestroyed(){
+        return destroyed;
+    }
 }

@@ -37,12 +37,13 @@ public class PlayerController : MonoBehaviour
     }
     private void PlayerDeath(){
         StartCoroutine(ResetLevel());
+        Vibration.Vibrate(500);
         gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
         shadow.enabled = false;
     }   
     IEnumerator ResetLevel(){
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

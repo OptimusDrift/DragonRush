@@ -100,6 +100,10 @@ public class DragonController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Rock"))
         {
+            if (!other.gameObject.GetComponent<Rock>().IsDestroyed())
+            {
+                Vibration.Vibrate(50);
+            }
             other.gameObject.GetComponent<Rock>().Destroyed();
         }
         if (other.gameObject.CompareTag("DeathZone"))

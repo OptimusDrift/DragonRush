@@ -22,17 +22,22 @@ public class DragonController : MonoBehaviour
     private Animator dragon;
     [SerializeField]
     private GameObject wall;
+    [SerializeField]
+    private Animator shadow;
+
     private bool isAttack = false;
     void Start()
     {
-        StartCoroutine(Spawn(1f));
+        StartCoroutine(Spawn(timeSpawn));
         Physics2D.IgnoreCollision(endLevel.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
     IEnumerator Spawn(float time)
     {
+        shadow.SetBool("spawn", true);
         yield return new WaitForSeconds(time);
         ChangeState(0);
+        shadow.SetBool("spawn", false);
         gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
         gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         gameObject.transform.position = spawnPoint.position;

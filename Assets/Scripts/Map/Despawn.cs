@@ -20,7 +20,7 @@ public class Despawn : MonoBehaviour
     {
         try
         {
-            other.gameObject.GetComponent<SpawnBackground>().Respawn();
+            other.gameObject.GetComponent<ISpawn>().Respawn();
         }
         catch (System.Exception)
         {

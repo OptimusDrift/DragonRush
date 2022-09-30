@@ -20,6 +20,8 @@ public class DragonController : MonoBehaviour
     private Transform endLevel;
     [SerializeField]
     private Animator dragon;
+    [SerializeField]
+    private GameObject wall;
     private bool isAttack = false;
     void Start()
     {
@@ -103,6 +105,7 @@ public class DragonController : MonoBehaviour
             if (!other.gameObject.GetComponent<Rock>().IsDestroyed())
             {
                 Vibration.Vibrate(50);
+                wall.GetComponent<IWiggle>().Wiggles();
             }
             other.gameObject.GetComponent<Rock>().Destroyed();
         }

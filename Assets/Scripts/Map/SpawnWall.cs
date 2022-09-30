@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnBackground : MonoBehaviour, ISpawn
+public class SpawnWall : MonoBehaviour, ISpawn
 {
     [SerializeField]
     private Transform spawnPoint;
+    [SerializeField]
+    private GameObject wall;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,6 @@ public class SpawnBackground : MonoBehaviour, ISpawn
 
     public void Respawn()
     {
-        transform.position = spawnPoint.position;
+        wall.transform.position = spawnPoint.position;
     }
 }

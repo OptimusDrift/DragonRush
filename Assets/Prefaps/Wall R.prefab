@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3844821435339524028}
   - component: {fileID: 3844821435339524029}
-  - component: {fileID: 3080273357151519828}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
@@ -83,21 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3080273357151519828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3844821435339524024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9473c1f83b123a746ac7c9308e36202e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wiggleSpeed: 1
-  wiggleAmount: 10
-  wiggleTime: 1
 --- !u!1 &3844821435912854360
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +173,6 @@ GameObject:
   m_Component:
   - component: {fileID: 96893330546646753}
   - component: {fileID: 574955608496959707}
-  - component: {fileID: 4949880417989603035}
   m_Layer: 0
   m_Name: Wall R
   m_TagString: Untagged
@@ -226,20 +209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.7
---- !u!114 &4949880417989603035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3844821437288739809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 767b5d56058682945a3b4171b3410f5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walls:
-  - {fileID: 3844821435339524024}
 --- !u!1 &3844821437290406775
 GameObject:
   m_ObjectHideFlags: 0

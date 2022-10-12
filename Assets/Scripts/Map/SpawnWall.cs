@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnWall : MonoBehaviour, ISpawn
+public class SpawnWall : MonoBehaviour, ISpawn, ILevel
 {
     [SerializeField]
     private Transform spawnPoint;
     [SerializeField]
     private GameObject wall;
+    [SerializeField]
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,9 @@ public class SpawnWall : MonoBehaviour, ISpawn
     public void Respawn()
     {
         wall.transform.position = spawnPoint.position;
+    }
+
+    public void LoadLevel(int level){
+        animator.SetInteger("LevelCount", level);
     }
 }

@@ -16,11 +16,5 @@ public class DeathZone : MonoBehaviour
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Rock")
-        {
-            other.gameObject.GetComponent<Collider2D>().enabled = false;
-        }
-    }
+
 }

@@ -14,6 +14,8 @@ public class SpawnRocks : MonoBehaviour
     private float minTime = 1.5f;
     [SerializeField]
     private float maxTime = 3f;
+    [SerializeField]
+    private GameObject eventManager;
     private List<GameObject> instantiatedRocks;
     private bool isSpawn = false;
     void Start()
@@ -33,7 +35,18 @@ public class SpawnRocks : MonoBehaviour
     {
         isSpawn = true;
         yield return new WaitForSeconds(time);
-        Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity);
+        var x = Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity);
+
+        foreach (var item in x.GetComponentsInChildren<Animator>())
+        {
+            try
+            {
+                item.SetInteger("LevelCount", eventManager.GetComponent<EventManager>().level);
+            }
+            catch (System.Exception)
+            {
+            }
+        }
         /*if (instantiatedRocks.Count < limitSpawn)
         {
             instantiatedRocks.Add(Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity));

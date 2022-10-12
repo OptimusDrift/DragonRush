@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Despawn : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject eventManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +23,9 @@ public class Despawn : MonoBehaviour
         try
         {
             other.gameObject.GetComponent<ISpawn>().Respawn();
+            other.gameObject.GetComponent<ILevel>().LoadLevel(eventManager.GetComponent<EventManager>().level);
         }
         catch (System.Exception)
-        {
-        }
-        if (other.gameObject.CompareTag("Rock"))
         {
             Destroy(other.gameObject);
         }

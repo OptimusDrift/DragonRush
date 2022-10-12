@@ -181,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
   wall: {fileID: 7882523544136448422}
+  animator: {fileID: 6584398787203645808}
 --- !u!50 &4165940639206518956
 Rigidbody2D:
   serializedVersion: 4
@@ -212,6 +213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7882523544136448421}
   - component: {fileID: 879718013156168546}
+  - component: {fileID: 9047883170722514875}
   m_Layer: 0
   m_Name: Wall L
   m_TagString: Untagged
@@ -248,6 +250,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.7
+--- !u!95 &9047883170722514875
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882523544136448422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1394c9c369463584db843da97c6913bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7882523544242945121
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7882523544242945133}
   - component: {fileID: 7882523544242945134}
+  - component: {fileID: 6584398787203645808}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Wall
@@ -330,3 +352,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6584398787203645808
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882523544242945121}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1394c9c369463584db843da97c6913bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
             PlayerDeath();
         }
     }
-    private void PlayerDeath(){
+    public void PlayerDeath(){
         StartCoroutine(ResetLevel());
         Vibration.Vibrate(500);
         gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;

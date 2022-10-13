@@ -42,6 +42,7 @@ public class SpawnRocks : MonoBehaviour
             try
             {
                 item.SetInteger("LevelCount", eventManager.GetComponent<EventManager>().level);
+                item.SetInteger("TipoObstaculo", Random.Range(0, 3));
             }
             catch (System.Exception)
             {

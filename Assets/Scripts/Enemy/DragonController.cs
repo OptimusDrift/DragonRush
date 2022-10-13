@@ -35,11 +35,13 @@ public class DragonController : MonoBehaviour
     IEnumerator Spawn(float time)
     {
         shadow.SetBool("spawn", true);
+        gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
+        gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        gameObject.transform.position = new Vector3(1000, 1000, 1000);
         yield return new WaitForSeconds(time);
         ChangeState(0);
         shadow.SetBool("spawn", false);
-        gameObject.transform.GetComponent<Rigidbody2D>().gravityScale = 0.1f;
-        gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        
         gameObject.transform.position = spawnPoint.position;
         isAttack = false;
         ChangeSpeedAnimation(1f);
@@ -109,8 +111,11 @@ public class DragonController : MonoBehaviour
         {
             if (!other.gameObject.GetComponent<Rock>().IsDestroyed())
             {
-                Vibration.Vibrate(50);
-                wall.GetComponent<IWiggle>().Wiggles();
+                if (dragon.GetInteger("dragonState") >= 1)
+                {
+                    Vibration.Vibrate(50);
+                    wall.GetComponent<IWiggle>().Wiggles();
+                }
             }
             other.gameObject.GetComponent<Rock>().Destroyed();
         }

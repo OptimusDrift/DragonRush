@@ -26,6 +26,12 @@ public class Rock : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         particles.Play();
         destroyed = true;
+        StartCoroutine("Destroyeded");
+    }
+
+    IEnumerator Destroyeded(){
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
     public bool IsDestroyed(){

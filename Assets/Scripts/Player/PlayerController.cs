@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer shadow;
     [SerializeField]
     private GameObject egg;
+    [SerializeField] 
+    private GameObject gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
         shadow.enabled = false;
+        gameOver.SetActive(true);
     }   
     IEnumerator ResetLevel(){
         yield return new WaitForSeconds(1f);

@@ -38,18 +38,13 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void PlayerDeath(){
-        StartCoroutine(ResetLevel());
         Vibration.Vibrate(500);
         gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
         shadow.enabled = false;
         gameOver.SetActive(true);
-    }   
-    IEnumerator ResetLevel(){
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameOver.GetComponent<GameOver>().StopGame();
     }
-
         private void FlipPlayer()
     {
         if (movementJoystick.CurrentProcessedValue.x > 0)

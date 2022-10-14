@@ -8,6 +8,8 @@ public class PlayGame : MonoBehaviour
     private GameObject dragon;
     [SerializeField]
     private GameObject spawner;
+    [SerializeField]
+    private GameObject titulo;
     void Start()
     {
     }
@@ -16,5 +18,6 @@ public class PlayGame : MonoBehaviour
         dragon.gameObject.GetComponent<DragonController>().Play();
         spawner.gameObject.GetComponent<SpawnRocks>().Play();
         gameObject.SetActive(false);
+        titulo.SetActive(false);
     }
 }

@@ -6,6 +6,7 @@ public class PlayGame : MonoBehaviour
 {
     [SerializeField]
     private GameObject dragon;
+    [SerializeField]
     private GameObject spawner;
     void Start()
     {

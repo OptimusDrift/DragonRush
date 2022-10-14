@@ -7,6 +7,8 @@ public class SpawnRocks : MonoBehaviour
     [SerializeField]
     private GameObject[] rocks;
     [SerializeField]
+    private GameObject[] slow;
+    [SerializeField]
     private Transform spawnPoint;
     [SerializeField]
     private int limitSpawn = 3;

@@ -11,6 +11,7 @@ TagManager:
   - Background
   - Wall
   - Dragon
+  - Slow
   layers:
   - Default
   - TransparentFX

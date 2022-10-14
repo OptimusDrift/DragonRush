@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] 
     private Joystick movementJoystick;
     [SerializeField]
-    private float speed = 5f;
+    private float totalSpeed = 5f;
+    private float actualSpeed;
     [SerializeField]
     private SpriteRenderer shadow;
     [SerializeField]
@@ -21,16 +22,17 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        actualSpeed = totalSpeed;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (movementJoystick.CurrentProcessedValue.y < 0){
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(movementJoystick.CurrentProcessedValue.x* speed, movementJoystick.CurrentProcessedValue.y * speed * 2) ;
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(movementJoystick.CurrentProcessedValue.x* actualSpeed, movementJoystick.CurrentProcessedValue.y * actualSpeed * 2) ;
         }else
         {
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = movementJoystick.CurrentProcessedValue * speed;
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = movementJoystick.CurrentProcessedValue * actualSpeed;
         }
         FlipPlayer();
         if(rock && deathZone){
@@ -79,6 +81,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Slow"))
+        {
+            actualSpeed = totalSpeed/2;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Rock"))
@@ -88,6 +98,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("DeathZone"))
         {
             deathZone = false;
+        }
+        if (other.gameObject.CompareTag("Slow"))
+        {
+            actualSpeed = totalSpeed;
         }
     }
     private void AddEgg(){

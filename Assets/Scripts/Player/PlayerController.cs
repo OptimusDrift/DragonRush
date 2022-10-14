@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     public void PlayerDeath(){
+        Firebase.Analytics.FirebaseAnalytics.LogEvent("progress", "death", egg.GetComponent<Egg>().eggCount);
         Vibration.Vibrate(500);
         gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;

@@ -13,7 +13,11 @@ public class DragonController : MonoBehaviour
     [SerializeField]
     private float timeSpawn = 1f;
     [SerializeField]
+    private float loadAtackMin = 15f;
+    [SerializeField]
     private float loadAtack = 15f;
+    [SerializeField]
+    private float loadAtackMax = 30f;
     [SerializeField]
     private float timeAttack = .6f;
     [SerializeField]
@@ -102,6 +106,7 @@ public class DragonController : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         if(wait > loadAtack){
             LoadAttack();
+            loadAtack = Random.Range(loadAtackMin, loadAtackMax);
             wait = 0;
         }else
         {

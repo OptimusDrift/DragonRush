@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146859317164",
+    "project_id": "dragonrush-97dfe",
+    "storage_bucket": "dragonrush-97dfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146859317164:android:4553854be808c22012cc09",
+        "android_client_info": {
+          "package_name": "com.UwU.DragonRush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146859317164-hp4hu12g7dg6jg75bl8qr3ddkqfehecf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEOtCpK2uSvoo-f-5aR1L5VZz-J8CU_Zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146859317164-hp4hu12g7dg6jg75bl8qr3ddkqfehecf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

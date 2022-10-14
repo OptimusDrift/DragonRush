@@ -36,11 +36,17 @@ public class SpawnRocks : MonoBehaviour
 
     IEnumerator SpawnRock(float time)
     {
+        var x = new Animator[] { };
         isSpawn = true;
         yield return new WaitForSeconds(time);
-        var x = Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity);
+        if (Random.Range(0,10) <= 7 || eventManager.GetComponent<EventManager>().level < 3){
+            x = Instantiate(rocks[Random.Range(0, rocks.Length)], spawnPoint.position, Quaternion.identity).GetComponentsInChildren<Animator>();
+        }else{
+            x = Instantiate(slow[Random.Range(0, slow.Length)], spawnPoint.position, Quaternion.identity).GetComponentsInChildren<Animator>();
+        }
+        
 
-        foreach (var item in x.GetComponentsInChildren<Animator>())
+        foreach (var item in x)
         {
             try
             {

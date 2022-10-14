@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8563624494289680968}
   - component: {fileID: 627215669815938589}
   - component: {fileID: 2212019017633912263}
+  - component: {fileID: 7543832705096275867}
   m_Layer: 0
-  m_Name: Slow
+  m_Name: SlowIzq
   m_TagString: Slow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: e22ef581d6ec47c4d9896d22e89bddbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c52a385cdc1f6a4a8899d4ac0580a4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,8 +98,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.42, y: -0.11}
-  m_Size: {x: 3.33, y: 1.6}
+  m_Offset: {x: 0.42, y: -0.06}
+  m_Size: {x: 3.5, y: 1.41}
   m_Direction: 1
 --- !u!50 &627215669815938589
 Rigidbody2D:
@@ -134,3 +135,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!95 &7543832705096275867
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6703359999317395764}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1341fce8ce10c0a4e8e1ff5e6b5622d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

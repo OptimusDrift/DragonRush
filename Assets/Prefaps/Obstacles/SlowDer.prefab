@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 627215669815938589}
   - component: {fileID: 2212019017633912263}
   m_Layer: 0
-  m_Name: Slow
+  m_Name: SlowDer
   m_TagString: Slow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: e22ef581d6ec47c4d9896d22e89bddbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4dc8c08fb9e094c4c98370f3191e9c4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,8 +97,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.42, y: -0.11}
-  m_Size: {x: 3.33, y: 1.6}
+  m_Offset: {x: 0.34, y: -0.24}
+  m_Size: {x: 4.74, y: 2.78}
   m_Direction: 1
 --- !u!50 &627215669815938589
 Rigidbody2D:

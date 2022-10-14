@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private Joystick movementJoystick;
     [SerializeField]
     private float totalSpeed = 5f;
+    [SerializeField]
+    private float slow = 2;
     private float actualSpeed;
     [SerializeField]
     private SpriteRenderer shadow;
@@ -85,7 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Slow"))
         {
-            actualSpeed = totalSpeed/2;
+            actualSpeed = totalSpeed/slow;
         }
     }
 

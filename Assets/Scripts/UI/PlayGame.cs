@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayGame : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject dragon;
+    private GameObject spawner;
     void Start()
     {
-        Time.timeScale = 0;
     }
 
     public void Play(){
-        Time.timeScale = 1;
+        dragon.gameObject.GetComponent<DragonController>().Play();
+        spawner.gameObject.GetComponent<SpawnRocks>().Play();
         gameObject.SetActive(false);
     }
 }

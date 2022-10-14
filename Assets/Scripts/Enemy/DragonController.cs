@@ -28,7 +28,6 @@ public class DragonController : MonoBehaviour
     private bool isAttack = false;
     void Start()
     {
-        StartCoroutine(Spawn(timeSpawn));
         Physics2D.IgnoreCollision(endLevel.GetComponent<Collider2D>(), GetComponent<Collider2D>());
     }
 
@@ -45,6 +44,11 @@ public class DragonController : MonoBehaviour
         gameObject.transform.position = spawnPoint.position;
         isAttack = false;
         ChangeSpeedAnimation(1f);
+    }
+
+    public void Play()
+    {
+        StartCoroutine(Spawn(timeSpawn));
     }
 
     void Update()

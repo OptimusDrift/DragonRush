@@ -18,6 +18,7 @@ public class SpawnRocks : MonoBehaviour
     private GameObject eventManager;
     private List<GameObject> instantiatedRocks;
     private bool isSpawn = false;
+    private bool isStart = false;
     void Start()
     {
         instantiatedRocks = new List<GameObject>();
@@ -25,7 +26,7 @@ public class SpawnRocks : MonoBehaviour
 
     void Update()
     {
-        if (!isSpawn)
+        if (!isSpawn && isStart)
         {
             StartCoroutine(SpawnRock(Random.Range(minTime, maxTime)));
         }
@@ -60,10 +61,8 @@ public class SpawnRocks : MonoBehaviour
         isSpawn = false;
     }
 
-    public void NewElement(GameObject g)
-    {
-        //instantiatedRocks.Add(g);
-        
+    public void Play(){
+        isStart = true;
     }
 
     public void updateTime(float min, float max)

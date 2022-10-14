@@ -2760,12 +2760,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 35972572}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1034208679 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 110386653979754444, guid: eb0e6e7be4a79f947ad020308c4bb295,
-    type: 3}
-  m_PrefabInstance: {fileID: 7269285768561041446}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1064893938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2153232242012465810, guid: 830d38d26ebf8a54f98611a9c744545d,
@@ -10547,46 +10541,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 439835112249830721, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 439835112249830721, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 439835112249830721, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 508229956476785363, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508229956476785363, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508229956476785363, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 508229956476785363, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 508229956476785363, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.1
-      objectReference: {fileID: 0}
     - target: {fileID: 4799725930809164486, guid: eb0e6e7be4a79f947ad020308c4bb295,
         type: 3}
       propertyPath: m_RootOrder
@@ -10642,51 +10596,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4813404322303241203, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4847098726950193268, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5769106418510235474, guid: eb0e6e7be4a79f947ad020308c4bb295,
         type: 3}
       propertyPath: m_Name
       value: Dragon
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659693045945998624, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659693045945998624, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 4.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659693045945998624, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7047056969332744210, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9180194917920824263, guid: eb0e6e7be4a79f947ad020308c4bb295,
         type: 3}
       propertyPath: wall
       value: 
       objectReference: {fileID: 1871937027}
-    - target: {fileID: 9180194917920824263, guid: eb0e6e7be4a79f947ad020308c4bb295,
-        type: 3}
-      propertyPath: shadow
-      value: 
-      objectReference: {fileID: 1034208679}
     - target: {fileID: 9180194917920824263, guid: eb0e6e7be4a79f947ad020308c4bb295,
         type: 3}
       propertyPath: target

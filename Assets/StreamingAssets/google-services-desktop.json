@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "146859317164-apcdorgmoa2lcqohd032jr7u3ss332pg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.UwU.DragonRush",
+            "certificate_hash": "05d2cfd4a23cc44c6af321a8276eec4dd2991e4b"
+          }
+        },
+        {
           "client_id": "146859317164-hp4hu12g7dg6jg75bl8qr3ddkqfehecf.apps.googleusercontent.com",
           "client_type": 3
         }

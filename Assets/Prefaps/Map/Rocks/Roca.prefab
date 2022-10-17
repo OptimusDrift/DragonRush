@@ -165,7 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 380877505993164451}
-  col: {fileID: 7911747156646944821}
+  collision: {fileID: 7911747156646944821}
+  trigger: {fileID: 2510598220618946777}
 --- !u!95 &1679300281004038101
 Animator:
   serializedVersion: 3

@@ -7,7 +7,9 @@ public class Rock : MonoBehaviour
     [SerializeField]
     private ParticleSystem particles;
     [SerializeField]
-    private Collider2D col;
+    private Collider2D collision;
+    [SerializeField]
+    private Collider2D trigger;
     private bool destroyed = false;
     void Start()
     {
@@ -22,7 +24,8 @@ public class Rock : MonoBehaviour
 
     public void Destroyed(){
         if(destroyed) return;
-        col.enabled = false;
+        collision.enabled = false;
+        trigger.enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         particles.Play();
         destroyed = true;

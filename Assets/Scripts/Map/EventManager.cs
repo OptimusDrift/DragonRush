@@ -19,7 +19,6 @@ public class EventManager : MonoBehaviour
                 if (eggs.GetComponent<Egg>().eggCount == levels[i])
                 {
                     level = i + 1;
-                    Debug.Log("Level " + level);
                     Firebase.Analytics.FirebaseAnalytics.LogEvent("level_" + level);
                     break;
                 }

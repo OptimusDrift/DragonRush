@@ -21,6 +21,8 @@ namespace EasyMobileInput.PlayerController
         private GameObject egg;
         [SerializeField]
         private GameObject gameOver;
+        [SerializeField]
+        private GameObject options;
         // Start is called before the first frame update
         void Start()
         {
@@ -46,7 +48,7 @@ namespace EasyMobileInput.PlayerController
         }
         public void PlayerDeath()
         {
-            Vibration.Vibrate(500);
+            options.GetComponent<Options>().Vibrate(500);
             gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
             shadow.enabled = false;

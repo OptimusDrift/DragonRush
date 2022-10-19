@@ -3,7 +3,7 @@ using System.Collections;
 
 public static class Vibration
 {
-
+    public static bool vibratorActive;
 #if UNITY_ANDROID && !UNITY_EDITOR
     public static AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
     public static AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
@@ -16,7 +16,7 @@ public static class Vibration
 
     public static void Vibrate()
     {
-        if (isAndroid())
+        if (isAndroid() && vibratorActive)
             vibrator.Call("vibrate");
         else
             Handheld.Vibrate();
@@ -25,7 +25,7 @@ public static class Vibration
 
     public static void Vibrate(long milliseconds)
     {
-        if (isAndroid())
+        if (isAndroid() && vibratorActive)
             vibrator.Call("vibrate", milliseconds);
         else
             Handheld.Vibrate();
@@ -33,7 +33,7 @@ public static class Vibration
 
     public static void Vibrate(long[] pattern, int repeat)
     {
-        if (isAndroid())
+        if (isAndroid() && vibratorActive)
             vibrator.Call("vibrate", pattern, repeat);
         else
             Handheld.Vibrate();
@@ -46,16 +46,18 @@ public static class Vibration
 
     public static void Cancel()
     {
-        if (isAndroid())
+        if (isAndroid() && vibratorActive)
             vibrator.Call("cancel");
     }
 
     private static bool isAndroid()
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-	return true;
-#else
-        return false;
-#endif
+    #if UNITY_ANDROID && !UNITY_EDITOR
+            return (vibratorActive);
+    #else
+            return (false && vibratorActive);
+    #endif
     }
+
+
 }

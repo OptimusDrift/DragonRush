@@ -22,12 +22,11 @@ public class DragonController : MonoBehaviour
     private float timeAttack = .6f;
     [SerializeField]
     private Transform endLevel;
-    [SerializeField]
-    private Animator dragon;
-    [SerializeField]
-    private GameObject wall;
+    public Animator dragon;
+    public GameObject wall;
     [SerializeField]
     private Animator shadow;
+    public GameObject options;
 
     private bool isAttack = false;
     void Start()
@@ -116,18 +115,18 @@ public class DragonController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Rock"))
+        /*if (other.gameObject.CompareTag("Rock"))
         {
             if (!other.gameObject.GetComponent<Rock>().IsDestroyed())
             {
                 if (dragon.GetInteger("dragonState") >= 1)
                 {
-                    Vibration.Vibrate(50);
+                    options.GetComponent<Options>().Vibrate(50);
                     wall.GetComponent<IWiggle>().Wiggles();
                 }
             }
             other.gameObject.GetComponent<Rock>().Destroyed();
-        }
+        }*/
         if (other.gameObject.CompareTag("DeathZone"))
         {
             if (wait <= 0)

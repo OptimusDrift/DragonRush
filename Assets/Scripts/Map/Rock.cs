@@ -24,8 +24,8 @@ public class Rock : MonoBehaviour
 
     public void Destroyed(){
         if(destroyed) return;
-        collision.enabled = false;
-        trigger.enabled = false;
+        Destroy(collision);
+        Destroy(trigger);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         particles.Play();
         destroyed = true;
@@ -39,5 +39,26 @@ public class Rock : MonoBehaviour
 
     public bool IsDestroyed(){
         return destroyed;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Dragon"))
+        {
+            if (!IsDestroyed())
+            {
+                if (other.gameObject.GetComponent<DragonController>().dragon.GetInteger("dragonState") >= 1)
+                {
+                    other.gameObject.GetComponent<DragonController>().options.GetComponent<Options>().Vibrate(50);
+                    other.gameObject.GetComponent<DragonController>().wall.GetComponent<IWiggle>().Wiggles();
+                }
+            }
+            Destroyed();
+        }
+        if (other.gameObject.CompareTag("DragonAttack"))
+        {
+            Destroyed();
+        }
     }
 }

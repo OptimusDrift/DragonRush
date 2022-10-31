@@ -12,7 +12,8 @@ TagManager:
   - Wall
   - Dragon
   - Slow
-  - DragonAttack
+  - DragonFire
+  - Helmet
   layers:
   - Default
   - TransparentFX

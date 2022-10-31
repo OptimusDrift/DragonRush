@@ -22,6 +22,14 @@ public class DragonController : MonoBehaviour
     private float timeAttack = .6f;
     [SerializeField]
     private Transform endLevel;
+    [SerializeField]
+    private GameObject fire;
+    [SerializeField]
+    private Transform[] firePoint;
+    [SerializeField]
+    private int minimunSpawnFire = 0;
+    [SerializeField]
+    private int maximumSpawnFire = 0;
     public Animator dragon;
     public GameObject wall;
     [SerializeField]
@@ -29,6 +37,7 @@ public class DragonController : MonoBehaviour
     public GameObject options;
 
     private bool isAttack = false;
+
     void Start()
     {
         Physics2D.IgnoreCollision(endLevel.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -110,6 +119,43 @@ public class DragonController : MonoBehaviour
         }else
         {
             StartCoroutine(Wait());
+        }
+    }
+
+    private Transform[] ShuffleArray(Transform[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            Transform temp = array[i];
+            int randomIndex = Random.Range(i, array.Length);
+            array[i] = array[randomIndex];
+            array[randomIndex] = temp;
+        }
+        return array;
+    }
+
+    //array to list
+    private List<Transform> ArrayToList(Transform[] array)
+    {
+        List<Transform> list = new List<Transform>();
+        for (int i = 0; i < array.Length; i++)
+        {
+            list.Add(array[i]);
+        }
+        return list;
+    }
+    private void AttackFire()
+    {
+        var temp = ArrayToList(ShuffleArray(firePoint));
+        var countSpawn = Random.Range(minimunSpawnFire, maximumSpawnFire);
+        for (int i = 0; i < countSpawn; i++)
+        {
+            var u = Random.Range(0, temp.Count);
+            var t = temp[u];
+            temp.Remove(t);
+            var fireSpawn = Instantiate(fire, t.position, Quaternion.identity);
+            //fireSpawn animation
+            //delay active collider
         }
     }
 

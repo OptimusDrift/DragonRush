@@ -8,6 +8,8 @@ public class UI : MonoBehaviour
     private GameObject market;
     [SerializeField]
     private GameObject buttonMarket;
+    [SerializeField]
+    private GameObject options;
     
 
     public void MarketOpen()
@@ -22,5 +24,17 @@ public class UI : MonoBehaviour
         Time.timeScale = 1;
         market.SetActive(false);
         buttonMarket.SetActive(true);
+    }
+
+    public void OptionsOpen()
+    {
+        Time.timeScale = 0;
+        options.SetActive(true);
+    }
+
+    public void OptionsClose()
+    {
+        Time.timeScale = 1;
+        options.SetActive(false);
     }
 }

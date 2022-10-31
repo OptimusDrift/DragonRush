@@ -35,6 +35,8 @@ namespace EasyMobileInput.PlayerController
         private float safeTime = 1f;
         [SerializeField]
         private GameObject helmet;
+        [SerializeField]
+        private GameObject save;
         private bool isSafe = false;
 
         // Start is called before the first frame update
@@ -80,6 +82,7 @@ namespace EasyMobileInput.PlayerController
                 gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
                 gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
                 shadow.enabled = false;
+                save.GetComponent<SaveGame>().AddEgg(egg.GetComponent<Egg>().eggCount);
                 gameOver.SetActive(true);
                 gameOver.GetComponent<GameOver>().StopGame();
             }

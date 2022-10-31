@@ -11,18 +11,18 @@ public class Egg : MonoBehaviour
     private Text text;
     public int eggCount = 0;
     public void AddEgg(bool plus = false){
-            try
-            {
-                egg[eggCount].GetComponent<SpriteRenderer>().enabled = true;
-            }
-            catch (System.Exception)
-            {
-            }
-            eggCount++;
-            text.text = eggCount.ToString();
-            if (plus)
-            {
-                AddEgg();
-            }
+        try
+        {
+            egg[eggCount].GetComponent<SpriteRenderer>().enabled = true;
+        }
+        catch (System.Exception)
+        {
+        }
+        eggCount++;
+        text.text = eggCount.ToString();
+        if (plus)
+        {
+            AddEgg();
+        }
     }
 }

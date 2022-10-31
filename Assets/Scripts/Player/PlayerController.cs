@@ -83,7 +83,7 @@ namespace EasyMobileInput.PlayerController
             {
                 deathZone = true;
             }
-            if (other.gameObject.CompareTag("Dragon"))
+            if (other.gameObject.CompareTag("Dragon") || other.gameObject.CompareTag("DragonFire"))
             {
                 PlayerDeath();
             }

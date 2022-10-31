@@ -23,6 +23,20 @@ namespace EasyMobileInput.PlayerController
         private GameObject gameOver;
         [SerializeField]
         private GameObject options;
+        private string[] states = {"estadoDuplicarCantidadDeHuevos","estadoCascoRompePiedras","estadoVidaExtra"};
+        private int playerLives = 0;
+        [SerializeField]
+        private GameObject hudDuplicarCantidadDeHuevos;
+        [SerializeField]
+        private GameObject hudCascoRompePiedras;
+        [SerializeField]
+        private GameObject hudVidaExtra;
+        [SerializeField]
+        private float safeTime = 1f;
+        [SerializeField]
+        private GameObject helmet;
+        private bool isSafe = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -32,6 +46,11 @@ namespace EasyMobileInput.PlayerController
         // Update is called once per frame
         void FixedUpdate()
         {
+            if (playerLives <= 0)
+            {
+                hudVidaExtra.SetActive(false);
+            }
+            helmet.SetActive(hudCascoRompePiedras.activeSelf);
             if (movementJoystick.CurrentProcessedValue.y < 0)
             {
                 gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(movementJoystick.CurrentProcessedValue.x * actualSpeed, movementJoystick.CurrentProcessedValue.y * actualSpeed * 2);
@@ -43,17 +62,32 @@ namespace EasyMobileInput.PlayerController
             FlipPlayer();
             if (rock && deathZone)
             {
-                PlayerDeath();
+                if (!isSafe)
+                {
+                    PlayerDeath();
+                }
             }
         }
         public void PlayerDeath()
         {
-            options.GetComponent<Options>().Vibrate(500);
-            gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
-            shadow.enabled = false;
-            gameOver.SetActive(true);
-            gameOver.GetComponent<GameOver>().StopGame();
+            if (playerLives > 0)
+            {
+                playerLives--;
+                StartCoroutine(SafeTime());
+            }else
+            {
+                options.GetComponent<Options>().Vibrate(500);
+                gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
+                gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
+                shadow.enabled = false;
+                gameOver.SetActive(true);
+                gameOver.GetComponent<GameOver>().StopGame();
+            }
+        }
+        IEnumerator SafeTime(){
+            isSafe = true;
+            yield return new WaitForSeconds(safeTime);
+            isSafe = false;
         }
         private void FlipPlayer()
         {
@@ -114,11 +148,34 @@ namespace EasyMobileInput.PlayerController
         }
         private void AddEgg()
         {
-            egg.GetComponent<Egg>().AddEgg();
+            egg.GetComponent<Egg>().AddEgg(hudDuplicarCantidadDeHuevos.activeSelf);
             /*eggCount++;
             var c = Instantiate(egg, new Vector3(eggCount * 0.5f, 0, 0), Quaternion.identity);
             c.GetComponent<HingeJoint2D>().connectedBody = gameObject.transform.GetComponent<Rigidbody2D>();
             c.transform.parent = gameObject.transform;*/
+        }
+
+        public void SetState(string state, float time)
+        {
+            switch (state)
+            {
+                case "estadoDuplicarCantidadDeHuevos":
+                    StartCoroutine(State(hudDuplicarCantidadDeHuevos, time));
+                    break;
+                case "estadoCascoRompePiedras":
+                    StartCoroutine(State(hudCascoRompePiedras, time));
+                    break;
+                case "estadoVidaExtra":
+                    playerLives++;
+                    hudVidaExtra.SetActive(true);
+                    break;
+            }
+        }
+
+        IEnumerator State(GameObject hud, float time){
+            hud.SetActive(true);
+            yield return new WaitForSeconds(time);
+            hud.SetActive(false);
         }
     }
 }

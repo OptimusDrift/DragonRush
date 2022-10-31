@@ -13,6 +13,7 @@ TagManager:
   - Dragon
   - Slow
   - DragonFire
+  - Helmet
   layers:
   - Default
   - TransparentFX

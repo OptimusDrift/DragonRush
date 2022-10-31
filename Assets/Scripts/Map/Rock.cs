@@ -56,7 +56,7 @@ public class Rock : MonoBehaviour
             }
             Destroyed();
         }
-        if (other.gameObject.CompareTag("DragonFire"))
+        if (other.gameObject.CompareTag("DragonFire") || other.gameObject.CompareTag("Helmet"))
         {
             Destroyed();
         }

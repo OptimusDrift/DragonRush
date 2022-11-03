@@ -633,6 +633,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4663205959338128926, guid: 830d38d26ebf8a54f98611a9c744545d,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4802948599209826125, guid: 830d38d26ebf8a54f98611a9c744545d,
         type: 3}
       propertyPath: m_Enabled
@@ -2456,6 +2461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: background (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4693592534151638318, guid: ffed48c8375fefc42841ae4117183d80,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffed48c8375fefc42841ae4117183d80, type: 3}
 --- !u!4 &603915116 stripped
@@ -2541,6 +2551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: background (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693592534151638318, guid: ffed48c8375fefc42841ae4117183d80,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffed48c8375fefc42841ae4117183d80, type: 3}
@@ -2891,6 +2906,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: background (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693592534151638318, guid: ffed48c8375fefc42841ae4117183d80,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffed48c8375fefc42841ae4117183d80, type: 3}
@@ -10989,6 +11009,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Options
       objectReference: {fileID: 0}
+    - target: {fileID: 2958673140023549402, guid: a4a9c6188230aed4d80ed8f71bf2e56c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2958673140023549405, guid: a4a9c6188230aed4d80ed8f71bf2e56c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11104,6 +11129,11 @@ PrefabInstance:
       propertyPath: music
       value: 
       objectReference: {fileID: 491800000}
+    - target: {fileID: 2958673141225167062, guid: a4a9c6188230aed4d80ed8f71bf2e56c,
+        type: 3}
+      propertyPath: m_Text
+      value: Options
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4a9c6188230aed4d80ed8f71bf2e56c, type: 3}
 --- !u!1001 &4693592533950964439
@@ -11187,6 +11217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: background
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693592534151638318, guid: ffed48c8375fefc42841ae4117183d80,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffed48c8375fefc42841ae4117183d80, type: 3}
@@ -11389,7 +11424,7 @@ PrefabInstance:
     - target: {fileID: 5769106418510235474, guid: eb0e6e7be4a79f947ad020308c4bb295,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9180194917920824263, guid: eb0e6e7be4a79f947ad020308c4bb295,
         type: 3}
@@ -11577,7 +11612,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 251ea4f87b036c749bf46db342a8a07d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

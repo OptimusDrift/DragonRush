@@ -2272,7 +2272,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!224 &503456547
 RectTransform:
@@ -10880,6 +10880,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503456547}
     m_Modifications:
+    - target: {fileID: 1243520732463378795, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 861.2129
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243520732463378795, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1522.772
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243520732463378795, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0000076293945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243520732463378795, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1243520733335391572, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10990,6 +11010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Market
       objectReference: {fileID: 0}
+    - target: {fileID: 1243520733335391575, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1243520733585887261, guid: fcfc7231cda6ce64e9acefcd19f76fc6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -11012,7 +11037,7 @@ PrefabInstance:
     - target: {fileID: 2958673140023549402, guid: a4a9c6188230aed4d80ed8f71bf2e56c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2958673140023549405, guid: a4a9c6188230aed4d80ed8f71bf2e56c,
         type: 3}

@@ -25,7 +25,7 @@ public class SaveGame : MonoBehaviour
 
     public void AddEgg(int eggs)
     {
-        egg += eggs;
+        egg = eggs;
         Save();
     }
 
@@ -34,5 +34,8 @@ public class SaveGame : MonoBehaviour
         return egg;
     }
 
-
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
 }

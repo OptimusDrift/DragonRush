@@ -9,16 +9,25 @@ public class Egg : MonoBehaviour
     private GameObject[] egg;
     [SerializeField]
     private Text text;
-    public int eggCount = 0;
-    public void AddEgg(bool plus = false){
+    public int eggCount;
+    private int eggActualRun = 0;
+
+    void Start()
+    {
+        eggCount = PlayerPrefs.GetInt("Egg");
+        text.text = eggCount.ToString();
+    }
+    public void AddEgg(bool plus = false)
+    {
         try
         {
-            egg[eggCount].GetComponent<SpriteRenderer>().enabled = true;
+            egg[eggActualRun].GetComponent<SpriteRenderer>().enabled = true;
         }
         catch (System.Exception)
         {
         }
         eggCount++;
+        eggActualRun++;
         text.text = eggCount.ToString();
         if (plus)
         {

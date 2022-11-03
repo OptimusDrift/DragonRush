@@ -23,7 +23,7 @@ namespace EasyMobileInput.PlayerController
         private GameObject gameOver;
         [SerializeField]
         private GameObject options;
-        private string[] states = {"estadoDuplicarCantidadDeHuevos","estadoCascoRompePiedras","estadoVidaExtra"};
+        //private string[] states = {"estadoDuplicarCantidadDeHuevos","estadoCascoRompePiedras","estadoVidaExtra"};
         private int playerLives = 0;
         [SerializeField]
         private GameObject hudDuplicarCantidadDeHuevos;
@@ -38,6 +38,8 @@ namespace EasyMobileInput.PlayerController
         [SerializeField]
         private GameObject save;
         private bool isSafe = false;
+
+
 
         // Start is called before the first frame update
         void Start()
@@ -76,7 +78,8 @@ namespace EasyMobileInput.PlayerController
             {
                 playerLives--;
                 StartCoroutine(SafeTime());
-            }else
+            }
+            else
             {
                 options.GetComponent<Options>().Vibrate(500);
                 gameObject.transform.GetComponent<SpriteRenderer>().enabled = false;
@@ -87,7 +90,8 @@ namespace EasyMobileInput.PlayerController
                 gameOver.GetComponent<GameOver>().StopGame();
             }
         }
-        IEnumerator SafeTime(){
+        IEnumerator SafeTime()
+        {
             isSafe = true;
             yield return new WaitForSeconds(safeTime);
             isSafe = false;
@@ -162,20 +166,21 @@ namespace EasyMobileInput.PlayerController
         {
             switch (state)
             {
-                case "estadoDuplicarCantidadDeHuevos":
+                case "DobleEgg":
                     StartCoroutine(State(hudDuplicarCantidadDeHuevos, time));
                     break;
-                case "estadoCascoRompePiedras":
+                case "Helmet":
                     StartCoroutine(State(hudCascoRompePiedras, time));
                     break;
-                case "estadoVidaExtra":
-                    playerLives++;
+                case "ExtraLive":
+                    playerLives = (int)time;
                     hudVidaExtra.SetActive(true);
                     break;
             }
         }
 
-        IEnumerator State(GameObject hud, float time){
+        IEnumerator State(GameObject hud, float time)
+        {
             hud.SetActive(true);
             yield return new WaitForSeconds(time);
             hud.SetActive(false);

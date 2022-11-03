@@ -6,7 +6,7 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     [SerializeField]
-    private float time;
+    private float[] time;
     [SerializeField]
     private string nameState;
 
@@ -14,7 +14,8 @@ public class PowerUp : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerController>().SetState(nameState, time);
+            other.gameObject.GetComponent<PlayerController>().SetState(nameState, time[PlayerPrefs.GetInt("Level" + nameState)]);
+            Destroy(gameObject);
         }
     }
 }

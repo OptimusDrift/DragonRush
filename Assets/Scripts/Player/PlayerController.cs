@@ -106,12 +106,6 @@ namespace EasyMobileInput.PlayerController
         private bool rock, deathZone;
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Item"))
-            {
-                other.gameObject.GetComponent<EggDestroy>().Destroyed();
-                Destroy(other.gameObject);
-                StartCoroutine(AddEgg(other));
-            }
             if (other.gameObject.CompareTag("Rock"))
             {
                 rock = true;
@@ -149,7 +143,7 @@ namespace EasyMobileInput.PlayerController
                 actualSpeed = totalSpeed;
             }
         }
-        IEnumerator AddEgg(Collider2D other)
+        public IEnumerator AddEgg(Collider2D other)
         {
             egg.GetComponent<Egg>().AddEgg(hudDuplicarCantidadDeHuevos.activeSelf);
             yield return new WaitForSeconds(0.4f);

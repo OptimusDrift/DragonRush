@@ -10,6 +10,8 @@ public class UI : MonoBehaviour
     private GameObject buttonMarket;
     [SerializeField]
     private GameObject options;
+    [SerializeField]
+    private GameObject creditos;    
     
 
     public void MarketOpen()
@@ -37,4 +39,10 @@ public class UI : MonoBehaviour
         Time.timeScale = 1;
         options.SetActive(false);
     }
-}
+
+    public void OpenCredits()
+    {
+        creditos.SetActive(true);
+    }
+}    
+    

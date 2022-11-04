@@ -107,8 +107,7 @@ namespace EasyMobileInput.PlayerController
         {
             if (other.gameObject.CompareTag("Item"))
             {
-                Destroy(other.gameObject);
-                AddEgg();
+                StartCoroutine(AddEgg(other));
             }
             if (other.gameObject.CompareTag("Rock"))
             {
@@ -147,9 +146,13 @@ namespace EasyMobileInput.PlayerController
                 actualSpeed = totalSpeed;
             }
         }
-        private void AddEgg()
+        IEnumerator AddEgg(Collider2D other)
         {
             egg.GetComponent<Egg>().AddEgg(hudDuplicarCantidadDeHuevos.activeSelf);
+            other.GetComponent<SpriteRenderer>().enabled = false;
+            other.GetComponent<BoxCollider2D>().enabled = false;
+            yield return new WaitForSeconds(0.4f);
+            Destroy(other.gameObject);
             /*eggCount++;
             var c = Instantiate(egg, new Vector3(eggCount * 0.5f, 0, 0), Quaternion.identity);
             c.GetComponent<HingeJoint2D>().connectedBody = gameObject.transform.GetComponent<Rigidbody2D>();

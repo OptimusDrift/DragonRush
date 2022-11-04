@@ -1,8 +1,11 @@
 # DragonRush
 
 Created by:
+
 Baldi, Santiago
+
 Castelnovo, Axel
+
 Urigo, Brandon
 
 Special thankful to Ignacio Maine, our friend and great artist behind this game! He is very god to be honest.

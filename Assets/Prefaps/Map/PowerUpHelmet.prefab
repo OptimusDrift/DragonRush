@@ -76,6 +76,8 @@ MonoBehaviour:
   - 6
   - 7
   nameState: Helmet
+  particles: {fileID: 8788953781775000663, guid: 37146e294b91f2446b54213ac8b731c7,
+    type: 3}
 --- !u!61 &2199289906843751612
 BoxCollider2D:
   m_ObjectHideFlags: 0

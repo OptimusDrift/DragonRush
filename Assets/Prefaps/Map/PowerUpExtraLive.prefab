@@ -81,6 +81,8 @@ MonoBehaviour:
   - 4
   - 5
   nameState: ExtraLive
+  particles: {fileID: 8788953781775000663, guid: 53a36cdd77e77904591c59d38cb75658,
+    type: 3}
 --- !u!50 &4190605551406328979
 Rigidbody2D:
   serializedVersion: 4

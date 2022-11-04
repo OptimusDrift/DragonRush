@@ -200,6 +200,8 @@ MonoBehaviour:
   - 6
   - 7
   nameState: DobleEgg
+  particles: {fileID: 8788953781775000663, guid: 6f52ef887932e36479237bf7ab6fc64a,
+    type: 3}
 --- !u!114 &3166217405798312116
 MonoBehaviour:
   m_ObjectHideFlags: 0

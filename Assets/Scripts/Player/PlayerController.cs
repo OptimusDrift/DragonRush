@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace EasyMobileInput.PlayerController
 {
@@ -38,11 +36,7 @@ namespace EasyMobileInput.PlayerController
         [SerializeField]
         private GameObject save;
         private bool isSafe = false;
-
-
-
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             actualSpeed = totalSpeed;
         }

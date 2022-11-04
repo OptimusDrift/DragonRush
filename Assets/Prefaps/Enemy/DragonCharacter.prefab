@@ -151,12 +151,20 @@ MonoBehaviour:
   target: {fileID: 0}
   spawnPoint: {fileID: 0}
   timeSpawn: 3
+  loadAtackMin: 15
   loadAtack: 15
+  loadAtackMax: 30
   timeAttack: 1
   endLevel: {fileID: 0}
+  fire: {fileID: 0}
+  firePoint: []
+  minimunSpawnFire: 0
+  maximumSpawnFire: 0
   dragon: {fileID: 8345822106276268170}
   wall: {fileID: 0}
   shadow: {fileID: 7269285768561041448}
+  shadowFoots: {fileID: 4813404322303241203}
+  options: {fileID: 0}
 --- !u!61 &4757651023632050445
 BoxCollider2D:
   m_ObjectHideFlags: 0

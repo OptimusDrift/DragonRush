@@ -10,11 +10,15 @@ public class PlayGame : MonoBehaviour
     private GameObject spawner;
     [SerializeField]
     private GameObject titulo;
+    [SerializeField]
+    private GameObject shop;
     void Start()
     {
     }
 
-    public void Play(){
+    public void Play()
+    {
+        shop.SetActive(false);
         dragon.gameObject.GetComponent<DragonController>().Play();
         spawner.gameObject.GetComponent<SpawnRocks>().Play();
         gameObject.SetActive(false);

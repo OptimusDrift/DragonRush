@@ -34,6 +34,8 @@ public class DragonController : MonoBehaviour
     public GameObject wall;
     [SerializeField]
     private Animator shadow;
+    [SerializeField]
+    private GameObject shadowFoots;
     public GameObject options;
 
     private bool isAttack = false;
@@ -52,7 +54,7 @@ public class DragonController : MonoBehaviour
         yield return new WaitForSeconds(time);
         ChangeState(0);
         shadow.SetBool("spawn", false);
-        
+
         gameObject.transform.position = spawnPoint.position;
         isAttack = false;
         ChangeSpeedAnimation(1f);
@@ -76,7 +78,8 @@ public class DragonController : MonoBehaviour
         dragon.speed = speed;
     }
 
-    public void ChangeState(int state){
+    public void ChangeState(int state)
+    {
         dragon.SetInteger("dragonState", state);
     }
     public void LoadAttack()
@@ -99,27 +102,57 @@ public class DragonController : MonoBehaviour
     {
         if ((target.transform.position.x - gameObject.transform.position.x) > 1.5f)
         {
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed/3;
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * speed / 3;
             transform.GetComponent<SpriteRenderer>().flipX = false;
 
         }
         else if ((target.transform.position.x - gameObject.transform.position.x) < -1.5f)
         {
-            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * speed/3;
+            gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * speed / 3;
             transform.GetComponent<SpriteRenderer>().flipX = true;
-        } else {
+        }
+        else
+        {
             gameObject.transform.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
         wait++;
         yield return new WaitForSeconds(.3f);
-        if(wait > loadAtack){
-            LoadAttack();
+        if (wait > loadAtack)
+        {
+            var r = Random.Range(1, 20);
+            if (r <= 1)
+            {
+                LoadAttack();
+            }
+            else
+            {
+                StartCoroutine(InAir());
+            }
             loadAtack = Random.Range(loadAtackMin, loadAtackMax);
             wait = 0;
-        }else
+        }
+        else
         {
             StartCoroutine(Wait());
         }
+    }
+
+    IEnumerator InAir()
+    {
+        shadow.SetBool("inAir", true);
+        shadowFoots.GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        shadow.SetBool("inAir", false);
+        AttackFire();
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(Spawn(timeSpawn));
+        yield return new WaitForSeconds(1.5f);
+        shadowFoots.GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = true;
+
     }
 
     private Transform[] ShuffleArray(Transform[] array)
@@ -154,8 +187,6 @@ public class DragonController : MonoBehaviour
             var t = temp[u];
             temp.Remove(t);
             var fireSpawn = Instantiate(fire, t.position, Quaternion.identity);
-            //fireSpawn animation
-            //delay active collider
         }
     }
 

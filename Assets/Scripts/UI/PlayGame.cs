@@ -12,12 +12,15 @@ public class PlayGame : MonoBehaviour
     private GameObject titulo;
     [SerializeField]
     private GameObject shop;
+    [SerializeField]
+    private GameObject eggCountReset;
     void Start()
     {
     }
 
     public void Play()
     {
+        eggCountReset.GetComponent<Egg>().Reset();
         shop.SetActive(false);
         dragon.gameObject.GetComponent<DragonController>().Play();
         spawner.gameObject.GetComponent<SpawnRocks>().Play();

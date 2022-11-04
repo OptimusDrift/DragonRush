@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.UI;
 
 [Serializable]
 public class ItemShop
@@ -25,7 +26,10 @@ public class HandlingShop : MonoBehaviour
     private ItemShop itemShop;
     private int levelMax = 5;
     private string json;
-
+    [SerializeField]
+    private Text txt;
+    [SerializeField]
+    private Text eggCount;
     void Start()
     {
         if (PlayerPrefs.HasKey("Egg"))
@@ -44,12 +48,15 @@ public class HandlingShop : MonoBehaviour
             if (PlayerPrefs.HasKey("Level" + item.name))
             {
                 PlayerPrefs.GetInt("Level" + item.name);
+                PlayerPrefs.SetInt("Level" + item.name, 0);
             }
             else
             {
                 PlayerPrefs.SetInt("Level" + item.name, 0);
             }
         }
+        PlayerPrefs.Save();
+        txt.text = "Level: " + (int)(PlayerPrefs.GetInt("LevelExtraLive") + 1) + "/" + levelMax + "\n" + "Price: " + prices[PlayerPrefs.GetInt("LevelExtraLive")];
     }
     public void BuyItem(string itemName)
     {
@@ -60,15 +67,25 @@ public class HandlingShop : MonoBehaviour
             if (userEgg >= PlayerPrefs.GetInt("Level" + itemName))
             {
                 userEgg -= prices[PlayerPrefs.GetInt("Level" + itemName)];
-                PlayerPrefs.SetInt("Egg", userEgg);
+                GetComponent<SaveGame>().AddEgg(-prices[PlayerPrefs.GetInt("Level" + itemName)]);
                 PlayerPrefs.SetInt("Level" + itemName, PlayerPrefs.GetInt("Level" + itemName) + 1);
                 PlayerPrefs.Save();
+                eggCount.text = userEgg.ToString();
             }
             else
             {
                 Debug.Log("Not enough eggs");
             }
         }
+        try
+        {
+            txt.text = "Level: " + (int)(PlayerPrefs.GetInt("LevelExtraLive") + 1) + "/" + levelMax + "\n" + "Price: " + prices[PlayerPrefs.GetInt("LevelExtraLive")];
+        }
+        catch (System.Exception)
+        {
+            txt.text = "Level: Max level";
+        }
+
     }
 
 }

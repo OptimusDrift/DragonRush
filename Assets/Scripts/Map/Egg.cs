@@ -9,12 +9,18 @@ public class Egg : MonoBehaviour
     private GameObject[] egg;
     [SerializeField]
     private Text text;
-    public int eggCount;
-    private int eggActualRun = 0;
+    public int eggCount = 0;
+    private int eggActualRun;
 
     void Start()
     {
-        eggCount = PlayerPrefs.GetInt("Egg");
+        eggActualRun = PlayerPrefs.GetInt("Egg");
+        text.text = eggActualRun.ToString();
+    }
+
+    public void Reset()
+    {
+        eggCount = 0;
         text.text = eggCount.ToString();
     }
     public void AddEgg(bool plus = false)

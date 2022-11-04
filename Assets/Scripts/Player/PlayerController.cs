@@ -80,6 +80,7 @@ namespace EasyMobileInput.PlayerController
                 gameObject.transform.GetComponent<BoxCollider2D>().enabled = false;
                 shadow.enabled = false;
                 save.GetComponent<SaveGame>().AddEgg(egg.GetComponent<Egg>().eggCount);
+                egg.GetComponent<Egg>().Reset();
                 gameOver.SetActive(true);
                 gameOver.GetComponent<GameOver>().StopGame();
             }
@@ -151,7 +152,7 @@ namespace EasyMobileInput.PlayerController
         {
             egg.GetComponent<Egg>().AddEgg(hudDuplicarCantidadDeHuevos.activeSelf);
             yield return new WaitForSeconds(0.4f);
-            
+
             /*eggCount++;
             var c = Instantiate(egg, new Vector3(eggCount * 0.5f, 0, 0), Quaternion.identity);
             c.GetComponent<HingeJoint2D>().connectedBody = gameObject.transform.GetComponent<Rigidbody2D>();

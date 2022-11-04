@@ -13406,6 +13406,7 @@ MonoBehaviour:
   spawner: {fileID: 1790593596}
   titulo: {fileID: 1673702682}
   shop: {fileID: 54754322}
+  eggCountReset: {fileID: 491800000}
 --- !u!95 &7300898974234061678
 Animator:
   serializedVersion: 3

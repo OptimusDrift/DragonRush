@@ -107,10 +107,7 @@ namespace EasyMobileInput.PlayerController
         {
             if (other.gameObject.CompareTag("Item"))
             {
-                other.GetComponent<SpriteRenderer>().enabled = false;
-                other.GetComponent<Animation>().Stop();
-                other.GetComponent<BoxCollider2D>().enabled = false;
-                other.GetComponent<ParticleSystem>().Play();
+                other.GetComponent<ActiveParticle>().Active();
                 StartCoroutine(AddEgg(other));
             }
             if (other.gameObject.CompareTag("Rock"))

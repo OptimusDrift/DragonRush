@@ -120,7 +120,7 @@ public class DragonController : MonoBehaviour
         if (wait > loadAtack)
         {
             var r = Random.Range(1, 20);
-            if (r <= 1)
+            if (r <= 10)
             {
                 LoadAttack();
             }

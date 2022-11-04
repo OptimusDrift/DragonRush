@@ -14,7 +14,7 @@ public class Egg : MonoBehaviour
 
     void Start()
     {
-        eggActualRun = PlayerPrefs.GetInt("Egg");
+        //eggActualRun = PlayerPrefs.GetInt("Egg");
         text.text = eggActualRun.ToString();
     }
 

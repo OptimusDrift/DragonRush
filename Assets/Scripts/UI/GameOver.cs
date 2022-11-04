@@ -18,6 +18,11 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void Menu(){
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level Example 1");
+    }
+
     // Update is called once per frame
     void Update()
     {

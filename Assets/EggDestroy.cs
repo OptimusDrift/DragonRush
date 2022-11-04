@@ -12,7 +12,6 @@ public class EggDestroy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Egg");
             Instantiate(particle, transform.position, Quaternion.identity);
             StartCoroutine(other.gameObject.GetComponent<PlayerController>().AddEgg(gameObject.GetComponent<Collider2D>()));
             Destroy(gameObject);

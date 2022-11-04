@@ -56,7 +56,6 @@ public class HandlingShop : MonoBehaviour
             }
         }
         PlayerPrefs.Save();
-        txt.text = "Level: " + (int)(PlayerPrefs.GetInt("LevelExtraLive") + 1) + "/" + levelMax + "\n" + "Price: " + prices[PlayerPrefs.GetInt("LevelExtraLive")];
     }
     public void BuyItem(string itemName)
     {
@@ -77,15 +76,6 @@ public class HandlingShop : MonoBehaviour
                 Debug.Log("Not enough eggs");
             }
         }
-        try
-        {
-            txt.text = "Level: " + (int)(PlayerPrefs.GetInt("LevelExtraLive") + 1) + "/" + levelMax + "\n" + "Price: " + prices[PlayerPrefs.GetInt("LevelExtraLive")];
-        }
-        catch (System.Exception)
-        {
-            txt.text = "Level: Max level";
-        }
-
     }
 
 }

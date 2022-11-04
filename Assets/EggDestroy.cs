@@ -6,7 +6,8 @@ public class EggDestroy : MonoBehaviour
 {
     [SerializeField]
     private GameObject particle;
-    private void OnDestroy()
+
+    public void Destroyed()
     {
         Instantiate(particle, transform.position, Quaternion.identity);
     }

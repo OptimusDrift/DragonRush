@@ -108,6 +108,7 @@ namespace EasyMobileInput.PlayerController
         {
             if (other.gameObject.CompareTag("Item"))
             {
+                other.gameObject.GetComponent<EggDestroy>().Destroyed();
                 Destroy(other.gameObject);
                 StartCoroutine(AddEgg(other));
             }

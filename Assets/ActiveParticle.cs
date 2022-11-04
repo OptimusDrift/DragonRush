@@ -5,16 +5,12 @@ using UnityEngine;
 public class ActiveParticle : MonoBehaviour
 {
     [SerializeField]
-    private ParticleSystem particle;
-    [SerializeField]
-    private GameObject shadow;
-    [SerializeField]
-    private GameObject egg;
-    public void Active()
+    private GameObject particle;
+    /// <summary>
+    /// This function is called when the MonoBehaviour will be destroyed.
+    /// </summary>
+    private void OnDestroy()
     {
-        GetComponent<Collider2D>().enabled = false;
-        particle.Play();
-        shadow.SetActive(false);
-        egg.SetActive(false);
+        Instantiate(particle, transform.position, Quaternion.identity);
     }
 }

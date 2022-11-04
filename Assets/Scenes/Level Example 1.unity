@@ -567,7 +567,7 @@ PrefabInstance:
         type: 3}
       propertyPath: options
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1189801962}
     - target: {fileID: 4663205959338127842, guid: 830d38d26ebf8a54f98611a9c744545d,
         type: 3}
       propertyPath: gameOver
@@ -1320,7 +1320,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156628437
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3822,6 +3822,12 @@ Transform:
   m_Father: {fileID: 193170323}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1189801962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2958673140794553904, guid: a4a9c6188230aed4d80ed8f71bf2e56c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047135311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1213958292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,7 +4877,7 @@ PrefabInstance:
     - target: {fileID: 6318382335077760224, guid: a72ac5e557e754a43b5f416c2a5f2b34,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6318382335077760225, guid: a72ac5e557e754a43b5f416c2a5f2b34,
         type: 3}
@@ -11485,7 +11491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1972551543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11579,6 +11585,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button Options
+      objectReference: {fileID: 0}
+    - target: {fileID: 1154853179012235160, guid: c41ca9685ed410a4885bbb1562fe963b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1154853179012235161, guid: c41ca9685ed410a4885bbb1562fe963b,
         type: 3}
@@ -11984,6 +11995,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503456547}
     m_Modifications:
+    - target: {fileID: 2456941460893647858, guid: 33e30bca7e1caad4882a270941c673a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3878452746290540162, guid: 33e30bca7e1caad4882a270941c673a8,
         type: 3}
       propertyPath: contoller
@@ -12098,6 +12114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Over
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878452746290540164, guid: 33e30bca7e1caad4882a270941c673a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9146182224364314552, guid: 33e30bca7e1caad4882a270941c673a8,
         type: 3}

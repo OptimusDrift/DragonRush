@@ -27,9 +27,13 @@ public class HandlingShop : MonoBehaviour
     private int levelMax = 5;
     private string json;
     [SerializeField]
-    private Text txt;
+    private GameObject saveGame;
     [SerializeField]
     private Text eggCount;
+
+    [SerializeField]
+    private GameObject[] powerUps;
+
     void Start()
     {
         if (PlayerPrefs.HasKey("Egg"))
@@ -48,7 +52,14 @@ public class HandlingShop : MonoBehaviour
             if (PlayerPrefs.HasKey("Level" + item.name))
             {
                 PlayerPrefs.GetInt("Level" + item.name);
-                PlayerPrefs.SetInt("Level" + item.name, 0);
+                foreach (var powers in powerUps)
+                {
+                    if (powers.GetComponent<PowerUpShop>().nameShop == item.name)
+                    {
+                        powers.GetComponent<PowerUpShop>().ActiveLevels(PlayerPrefs.GetInt("Level" + item.name), prices[PlayerPrefs.GetInt("Level" + item.name)].ToString());
+                        break;
+                    }
+                }
             }
             else
             {
@@ -59,21 +70,38 @@ public class HandlingShop : MonoBehaviour
     }
     public void BuyItem(string itemName)
     {
+        Debug.Log(itemName);
         if (PlayerPrefs.GetInt("Level" + itemName) < levelMax)
         {
-            Debug.Log("Level" + itemName + " " + PlayerPrefs.GetInt("Level" + itemName));
-            Debug.Log(userEgg);
             if (userEgg >= PlayerPrefs.GetInt("Level" + itemName))
             {
                 userEgg -= prices[PlayerPrefs.GetInt("Level" + itemName)];
-                GetComponent<SaveGame>().AddEgg(-prices[PlayerPrefs.GetInt("Level" + itemName)]);
+                saveGame.GetComponent<SaveGame>().AddEgg(-prices[PlayerPrefs.GetInt("Level" + itemName)]);
                 PlayerPrefs.SetInt("Level" + itemName, PlayerPrefs.GetInt("Level" + itemName) + 1);
                 PlayerPrefs.Save();
                 eggCount.text = userEgg.ToString();
             }
-            else
+            try
             {
-                Debug.Log("Not enough eggs");
+                foreach (var powers in powerUps)
+                {
+                    if (powers.GetComponent<PowerUpShop>().nameShop == itemName)
+                    {
+                        powers.GetComponent<PowerUpShop>().ActiveLevels(PlayerPrefs.GetInt("Level" + itemName), prices[PlayerPrefs.GetInt("Level" + itemName)].ToString());
+                        break;
+                    }
+                }
+            }
+            catch (System.Exception)
+            {
+                foreach (var powers in powerUps)
+                {
+                    if (powers.GetComponent<PowerUpShop>().nameShop == itemName)
+                    {
+                        powers.GetComponent<PowerUpShop>().ActiveLevels(PlayerPrefs.GetInt("Level" + itemName), "Max level");
+                        break;
+                    }
+                }
             }
         }
     }

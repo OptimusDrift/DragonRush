@@ -150,7 +150,9 @@ namespace EasyMobileInput.PlayerController
         {
             egg.GetComponent<Egg>().AddEgg(hudDuplicarCantidadDeHuevos.activeSelf);
             other.GetComponent<SpriteRenderer>().enabled = false;
+            other.GetComponent<Animation>().Stop();
             other.GetComponent<BoxCollider2D>().enabled = false;
+            other.GetComponent<ParticleSystem>().Play();
             yield return new WaitForSeconds(0.4f);
             Destroy(other.gameObject);
             /*eggCount++;

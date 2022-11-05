@@ -15,6 +15,8 @@ public class UI : MonoBehaviour
 
     [SerializeField]
     private GameObject[] diableItems;
+    [SerializeField]
+    private GameObject[] activeItems;
 
 
     public void MarketOpen()
@@ -30,7 +32,7 @@ public class UI : MonoBehaviour
         Time.timeScale = 1;
         market.SetActive(false);
         buttonMarket.SetActive(true);
-        ChangeVisibility();
+        ActiveChangeVisibility();
     }
 
     public void OptionsOpen()
@@ -44,7 +46,7 @@ public class UI : MonoBehaviour
     {
         Time.timeScale = 1;
         options.SetActive(false);
-        ChangeVisibility();
+        ActiveChangeVisibility();
     }
 
     public void OpenCredits()
@@ -58,6 +60,18 @@ public class UI : MonoBehaviour
         {
             item.SetActive(false);
         }
+    }
+    private void ActiveChangeVisibility()
+    {
+        foreach (var item in diableItems)
+        {
+            item.SetActive(true);
+        }
+    }
+
+    public void VisibilityEggs(GameObject egg)
+    {
+        egg.SetActive(egg.activeSelf ? false : true);
     }
 }
 

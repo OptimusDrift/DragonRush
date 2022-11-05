@@ -8,20 +8,19 @@ public class EventManager : MonoBehaviour
     private GameObject eggs;
     public int level = 0;
 
-    private int[] levels = {20, 40, 60};
+    private int[] levels = { 20, 40, 60 };
 
 
-    void Update(){
-        if (eggs.GetComponent<Egg>().eggCount < levels[levels.Length - 1])
+    void Update()
+    {
+
+        for (int i = level; i < levels.Length; i++)
         {
-            for (int i = level; i < levels.Length; i++)
+            if (eggs.GetComponent<Egg>().eggCount >= levels[i])
             {
-                if (eggs.GetComponent<Egg>().eggCount == levels[i])
-                {
-                    level = i + 1;
-                    Firebase.Analytics.FirebaseAnalytics.LogEvent("level_" + level);
-                    break;
-                }
+                level = i + 1;
+                Firebase.Analytics.FirebaseAnalytics.LogEvent("level_" + level);
+                break;
             }
         }
     }

@@ -15,7 +15,7 @@ public class PowerUpShop : MonoBehaviour
         text.text = price;
         for (int i = 0; i < level; i++)
         {
-            levels[i].GetComponent<Animator>().SetBool("isActive", true);
+            levels[i].GetComponent<ToggleButton>().Toggle(true);
         }
     }
 }

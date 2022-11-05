@@ -20,7 +20,7 @@ public class ItemsShop
 
 public class HandlingShop : MonoBehaviour
 {
-    private int[] prices = { 100, 250, 1000, 5000, 10000 };
+    private int[] prices = { 25, 50, 250, 500, 1000 };
     private string[] itemsShop = { "DobleEgg", "Helmet", "ExtraLive" };
     //private ItemsShop itemsShop;
     private ItemShop itemShop;
